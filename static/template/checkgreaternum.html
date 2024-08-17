@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if x > y %}
+    <p>{{x}} is gretaer</p>
+    {% else %}
+    <p>{{y}} is gretaer</p>
+    {% endif %}
+    <strong>list elements:</strong>
+    {{l}}
+    {% for i in l %}
+    <h1>{{i}}</h1>
+    {% endfor %}
+    <hr>
+    {{products}}
+    <hr>
+    {% for x in products %}
+        <strong>{{forloop.counter}}]</strong>
+        <strong>Product NAme:</strong>{{x.name}}&nbsp;&nbsp;
+        <strong>Category:</strong>{{x.cat}}
+        <strong>Price:</strong>{{x.price}}
+        <br>
+    {% endfor %}
+    <hr>
+    <h2>printing data in table format</h2>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>Product name</th>
+            <th>category</th>
+            <th>price</th>
+        </tr>
+        {% for x in products %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.cat}}</td>
+            <td>{{x.price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

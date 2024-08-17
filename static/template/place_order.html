@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+ {% block 'main' %}
+ <div class="container mt-5">
+ <div class="row"><!------row 2 starts---->
+    <div class="col-md-9">
+        
+        <h5 class="bg-danger text-white p-2">Customer details</h5>
+        <hr>
+        {% for x in products %}
+        {% if forloop.counter == 1 %}
+        <p><strong>Name:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.username}}</p>
+        <p><strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.email}}</p>
+        {% endif %}
+        {% endfor %}
+        <!-- <p><strong>Mob No:</strong>&nbsp;&nbsp;&nbsp;9999999999</p> -->
+        <div class="mt-5 shadow p-3">
+            <div class="row">
+                {% for x in products %}
+                <div class="col-md-4">
+                    <img src="{{x.pid.pimage.url}}" alt="" width="100%">
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Product Name:</strong>&nbsp;&nbsp;&nbsp;{{x.pid.name}}</p>
+                    <p><strong>Price:</strong>&nbsp;&nbsp;&nbsp;{{x.pid.price}}</p>
+                    <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;
+                        {% if x.pid.cat == 1 %}
+                        <p class="card-text">Mobile</p>
+                        {% elif x.pid.cat == 2 %}
+                        <p class="card-text">Shoes</p>
+                        {% else %}
+                        <p class="card-text">Cloth</p>
+                        {% endif %}
+                    </p>
+                    <p><strong>Product details:</strong>{{x.pid.pdetails}}</p>
+                    <p><strong>QTY:</strong></p>
+                    <a href="/updateqty/0/{{x.id}}"><button class="btn btn-danger">-</button></a>
+                    <input type="text" value="{{x.qty}}">
+                    <a href="/updateqty/1/{{x.id}}"><button class="btn btn-danger">+</button></a>
+                    <a href="delete/{{x.pid.id}}"><button class="btn btn-danger">remove</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="shadow p-3">
+            <h4>price Details</h4>
+            <hr>
+            <p><strong>Price {{n}} items</strong>{{total}}</p>
+            <hr>
+            <p><strong>Total Amount:</strong>{{total}}</p>
+            <a href="/makepayment"><button class="btn btn-danger">Make Payment</button></a>
+        </div>
+    </div>
+</div><!------row 2 ends-->
+</div>
+ {% endblock 'main' %}

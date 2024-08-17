@@ -1,0 +1,7 @@
+.anchor{
+ text-decoration: none;
+}
+.left-spacer {
+    margin-left: 0; /* Remove left margin */
+    padding-left: 0; /* Remove left padding */
+}

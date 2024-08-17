@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <b>thisis home page from html page</b>
+    <strong>my name is {{name}} and i am {{age}} old</strong>
+    <button onclick="greet()">click me</button>
+    <img src="{% static 'images/vivo.jpg' %}" alt="">
+</body>
+</html>
